@@ -38,7 +38,7 @@
 				</div>
 		</div>
   <div id="tips"></div>
-		<script id="tips" type="text/html">
+		<script id="tips_template" type="text/html">
 		<ul>
     {{#rows}}
       <li>
@@ -50,18 +50,18 @@
   </ul>
 		</script>
 
-		<script type="text/javascript">
-		  document.addEventListener('DOMContentLoaded', function() {
-	      var URL = "1WfFfHtg9ruQcigjX093kXZWg5Jycraj30h5RpADos5o"
-	      Tabletop.init( { key: URL, callback: initialize, simpleSheet: true } )
-	    })
-		function showData (data) {
-    var template = document.querySelector('tips').innerHTML
+		
+		<script type="text/html">
+  document.addEventListener('DOMContentLoaded', function() {
+    var URL = '1WfFfHtg9ruQcigjX093kXZWg5Jycraj30h5RpADos5o'
+    Tabletop.init({key: URL, callback: showData, simpleSheet: true})
+  })
+
+  function showData (data) {
+    var template = document.querySelector('tips_template').innerHTML
     var html = Sheetsee.Mustache.render(template, {'rows': data})
     document.getElementByID('tips').innerHTML = html
   }
-			
-			
-		</script>
+</script>
 	</body>
 </html>
