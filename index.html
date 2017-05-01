@@ -59,7 +59,7 @@
 				{{^checkedout}}<a href="mailto:{{owneremail}}?subject=Tool Lending: {{tool}}"><span class="tool-box-borrow btn">BORROW</span></a>{{/checkedout}}
 				<ul>
 					<li><small>WHO / WHERE : </small></li>
-					<li><a href="mailto:{{owneremail}}">{{tip}}</a></li>
+					<li><a href="mailto:{{owneremail}}">{{submitted_by}}</a></li>
 					<li>{{submitted_by}}, {{initial}}, {{state}}</li>
 					<li><a href="https://maps.google.com/maps?q={{street}},{{city}},{{state}}" target="_blank"><small>MAP</small></a></li>
 					{{#tooldetails}}
