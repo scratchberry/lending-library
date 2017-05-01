@@ -50,12 +50,13 @@
 				</div>
 		</div>
 
-		<div id="placeholder"></div>
+		<div id="tips"></div>
 
-  <script id="placeholder" type="text/html">
-    // template if you so desire!
-   {{tip}}
-  </script>
+<script id="tips" type="text/html">
+		{{#rows}}
+		{{tip}}
+		{{/rows}}
+</script>
 
 		<script type="text/javascript">
 		  document.addEventListener('DOMContentLoaded', function() {
