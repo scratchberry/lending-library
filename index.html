@@ -37,8 +37,8 @@
 
 				</div>
 		</div>
-  <div id="tools"></div>
-		<script id="tools" type="text/html">
+  <div id="tips"></div>
+		<script id="tips_template" type="text/html">
 		<ul>
     {{#rows}}
       <li>
@@ -55,6 +55,13 @@
 	      var URL = "1WfFfHtg9ruQcigjX093kXZWg5Jycraj30h5RpADos5o"
 	      Tabletop.init( { key: URL, callback: initialize, simpleSheet: true } )
 	    })
+		function showData (data) {
+    var template = document.querySelector('tips_template').innerHTML
+    var html = Sheetsee.Mustache.render(template, {'rows': data})
+    document.getElementByID('tips').innerHTML = html
+  }
+			
+			
 		</script>
 	</body>
 </html>
