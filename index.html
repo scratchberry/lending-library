@@ -37,17 +37,26 @@
 
 				</div>
 		</div>
-  <div id="tips"></div>
-		<script id="tips" type="text/html">
-		<ul>
-    {{#rows}}
-      <li>
-        {{tool}},
-        {{Source}}, 
-        {{ID}}
-      </li>
-    {{/rows}}
-  </ul>
+  <div id="tools"></div>
+<script id="tools" type="text/html">
+		{{#rows}}
+		<div id="{{rowNumber}}" class="tool-box {{#checkedout}}not-{{/checkedout}}available">
+			<span class="tool-box-tool">{{tool}}</span>
+			<div class="tool-box-bottom {{rowNumber}}">
+				{{#checkedout}} <span class="tool-box-borrowed">ON LOAN</span>{{/checkedout}}
+				{{^checkedout}}<a href="mailto:{{owneremail}}?subject=Tool Lending: {{tool}}"><span class="tool-box-borrow btn">BORROW</span></a>{{/checkedout}}
+				<ul>
+					<li><small>WHO / WHERE : </small></li>
+					<li><a href="mailto:{{owneremail}}">{{owner}}</a></li>
+					<li>{{street}}, {{city}}, {{state}}</li>
+					<li><a href="https://maps.google.com/maps?q={{street}},{{city}},{{state}}" target="_blank"><small>MAP</small></a></li>
+					{{#tooldetails}}
+					<li><small>NOTES : </small>{{tooldetails}}</li>
+					{{/tooldetails}}
+				</ul>
+			</div>
+		</div>
+		{{/rows}}
 		</script>
 
 		
