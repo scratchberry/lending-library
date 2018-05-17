@@ -11,8 +11,20 @@
 		<link media="screen" rel="stylesheet" type="text/css" href="css/site.css">
 	</head>
 	<body>
-		
-		<!-- <div id="tools" class="container"><span class="flash animated">LOADING...</span></div> -->
+		<header class="container">
+			<h1>Tool Lending</h1>
+			<ul class="nav">
+				<li><strong>LENDING IS LOVELY</strong></li>
+				<li>AN OPEN SOURCE, EASY TO DUPLICATE PROJECT</li>
+				<li><a href="#info">HERE'S HOW</a></li>
+			</ul>
+		</header>
+		<div id="filters" class="container">
+			<input id="toolSearch" type="search" placeholder="hammer.."></input>
+			<span class="clear sml-button">Clear</span>
+			<span id="showAvailable" class="sml-button">Show Available</span>
+		</div>
+		<div id="tools" class="container"><span class="flash animated">LOADING...</span></div>
 		<div id="info" class="container">
 				<div class="span1">
 					<h4>CONTRIBUTE TO THIS LIBRARY</h4>
@@ -37,8 +49,8 @@
 
 				</div>
 		</div>
-  <div id="tools"></div>
-<script id="tools" type="text/html">
+
+		<script id="tools" type="text/html">
 		{{#rows}}
 		<div id="{{rowNumber}}" class="tool-box {{#checkedout}}not-{{/checkedout}}available">
 			<span class="tool-box-tool">{{tool}}</span>
@@ -59,18 +71,11 @@
 		{{/rows}}
 		</script>
 
-		
 		<script type="text/javascript">
-  document.addEventListener('DOMContentLoaded', function() {
-    var URL = '2PACX-1vSjIYMHNYLOCGu9xaIylKgT9QfzlRVKrhe6ro3ruYNlPpYKqILBX6HWVCO88jlPh5nhKAKv3C0fbQVl'
-    Tabletop.init({key: URL, callback: showData, simpleSheet: true})
-  })
-
-  function showData (data) {
-    var template = document.querySelector('tips_template').innerHTML
-    var html = Sheetsee.Mustache.render(template, {'rows': data})
-    document.getElementByID('tips').innerHTML = html
-  }
-</script>
+		  document.addEventListener('DOMContentLoaded', function() {
+	      var URL = "2PACX-1vSjIYMHNYLOCGu9xaIylKgT9QfzlRVKrhe6ro3ruYNlPpYKqILBX6HWVCO88jlPh5nhKAKv3C0fbQVl"
+	      Tabletop.init( { key: URL, callback: initialize, simpleSheet: true } )
+	    })
+		</script>
 	</body>
 </html>
